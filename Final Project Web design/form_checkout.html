@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Form</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Dosis&family=Fjalla+One&family=Lato:wght@900&family=Open+Sans:wght@800&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao+Looped:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+	<style>
+		body {
+			background-color: white;
+			background-repeat: no-repeat;
+		}
+
+		::placeholder {
+			font-size: 19px;
+			color: rgba(169, 169, 169, 1);
+		}
+
+		.Container {
+			background-color: rgba(226, 226, 226, 0.8);
+			width: 500px;
+			height: 680px;
+			margin: auto;
+			margin-top: 2%;
+			border-radius: 3%;
+			filter: blur(0.3px);
+		}
+
+		.font h1 {
+			font-size: 55px;
+			font-family: 'Lato', sans-serif;
+			padding-left: 50px;
+			padding-top: 75px;
+			z-index: 1;
+			color: black;
+		}
+
+		.font p {
+			font-size: 17px;
+			margin-top: -30px;
+			padding-left: 50px;
+			font-weight: normal;
+			font-family: 'Noto Sans Lao Looped', sans-serif;
+		}
+
+		#input {
+			margin-top: 30px;
+			margin-left: 50px;
+			font-style: underline;
+			background-color: rgba(226, 226, 226, 0);
+			width: 390px;
+			height: 40px;
+			border: none;
+			border-bottom: 0.3px solid grey;
+			transition: 0.7s;
+		}
+
+		#input:hover {
+			width: 400px;
+			height: 50px;
+			transform: translate(10px);
+		}
+
+		#check {
+			width: 25px;
+			height: 20px;
+			float: left;
+			cursor: pointer;
+			vertical-align: bottom;
+			color: black;
+			background-color: rgba(0, 0, 0, 0.08);
+			transition: 0.7s;
+		}
+
+		#check:hover {
+			transform: scale(1.2);
+		}
+
+		#go {
+			font-size: 18px;
+			padding-top: 1px;
+			margin-left: 16%;
+			font-family: 'Raleway', sans-serif;
+		}
+
+		img {
+			position: absolute;
+			z-index: 1;
+			margin-top: 57px;
+			margin-left: 49px;
+			height: 24px;
+			;
+			width: 36px
+		}
+
+		.container {
+			margin-left: 50px;
+			margin-top: 20px;
+			display: block;
+			position: relative;
+			padding-left: 35px;
+			margin-bottom: 12px;
+			cursor: pointer;
+			font-size: 16px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		textarea:focus,
+		input:focus {
+			outline: none;
+		}
+
+		.container input {
+			position: absolute;
+			opacity: 0;
+			cursor: pointer;
+			height: 0;
+			width: 0;
+		}
+
+		.container p {
+			margin-left: -10px;
+			font-weight: .5;
+		}
+
+		.checkmark {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 15px;
+			width: 15px;
+			border: .3px;
+			border-radius: 30%;
+			border-style: solid;
+			border-color: black;
+			background-color: rgba(0, 0, 0, 0);
+
+		}
+
+		.container:hover input~.checkmark {
+			background-color: #ccc;
+		}
+
+		.container input:checked~.checkmark {
+			background-color: #2196F3;
+		}
+
+		.checkmark:after {
+			content: "";
+			position: absolute;
+			display: none;
+		}
+
+		.container input:checked~.checkmark:after {
+			display: block;
+		}
+
+		.container .checkmark:after {
+			left: 4px;
+			top: 1px;
+			width: 5px;
+			height: 10px;
+			border: solid white;
+			border-width: 0 3px 3px 0;
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+
+		.button0{
+			display: inline-block;
+			margin-top: 5%;
+			margin-left: 18%;
+      padding: 15px 100px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: orange;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+      opacity: 1;
+		}
+		.button0:hover {
+            background-color: salmon;
+        }
+
+        .button0:active {
+            background-color: #salmon;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+     .overlay{
+				width: 0;
+				height: 0;
+				overflow: hidden;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0);
+				z-index: 999;
+				transition: .3s;
+				text-align: center;
+				padding: 100px;
+		}
+		.overlay:target{
+			height: 100%;
+			width: 100%;
+			bottom: 0;
+			right: 0;
+			background: rgba(0, 0, 0, 0.8);
+		}
+		.overlay a{
+			opacity: 0;
+		}
+		.overlay:target a{
+			opacity: 1;
+		}
+		.button0 a{
+			text-decoration: none;
+			color: white;
+		}
+		.overlay .close{
+			margin-left: -800px;
+			position: absolute;
+			top: 20px;
+			font-size: 40px;
+			color: white;
+			text-decoration: none;
+			background-color: black;
+			border: 1px solid white;
+			line-height: 14px;
+			padding: 12px;
+			opacity: 0;
+		}
+.alert {
+  margin-top: 200px;
+  margin-left: 100px;
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  width: 1200px;
+  height: 10px;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+	</style>
+</head>
+
+<body>
+	<div id="like_button_container">
+		<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+		<script src="like_button.js"></script>
+	</div>
+	<div class="Container">
+		<div class="font">
+			<h1>Hello!</h1>
+			<p>Please fill out all the forms</p>
+		</div>
+		<div class="input">
+			<form>
+				<label><input type="input" name="Input" id="input" placeholder="Name"></label>
+				<label><input type="input" name="Input" id="input" placeholder="Address"></label>
+				<label><input type="input" name="Input" id="input" placeholder="Contact"></label>
+				<label><input type="number" name="Input" id="input" placeholder="Jumlah barang"></label>
+			</form>
+			<form>
+				<label class="container">
+					<p>Remember me</p>
+					<input type="checkbox" checked="checked">
+					<span class="checkmark"></span>
+				</label>
+				<button class="button0"><a href="#pop-1">Check Out</a></button>
+
+				
+			</form>
+		</div>
+	</div>
+	<div class="overlay" id="pop-1">
+					<a href="#" class="close">x close</a>
+					<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Order berhasil!</strong>
+</div>
+			</div>
+</body>	
+
+</html>

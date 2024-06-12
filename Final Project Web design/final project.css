@@ -1,0 +1,128 @@
+.Container {
+      width: 960px;
+      margin: auto;
+      background-color: #fff;
+      border: 5px solid lavender;
+    }
+    .header{
+      padding: 20px;
+      background-image: url(projectzero.png);
+      background-repeat: no-repeat;
+      z-index: 1;
+      background-position: top right;
+      background-size: 60px 60px;
+    }
+    .header background-image{
+      position: absolute;
+
+    }
+    .header .judul{
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .header ul li{
+      display: inline-block;
+      margin-top: 20px;
+      margin-right: 10px;
+    }
+    .header a{
+      text-decoration: none;
+      color: salmon;
+      padding: 3px;
+    }
+    .header a:hover{
+      background-color: lightyellow;
+      color: salmon;
+    }
+    .main{
+      padding: 20px;
+      width: 600px;
+      box-sizing: border-box;
+    }
+    .main h2{
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .main p{
+      padding-left: 15px;
+    }
+    .bot{
+      background-color: black;
+      height: 50px;
+    }
+    .bot h3{
+      color: ghostwhite;
+      text-align: center;
+      font: arial,sans-serif;
+      font-size: 15px;
+      padding-top: 10px;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown span{
+      color: salmon;
+    }
+    .dropdown-content a:hover{
+      color: lightskyblue;
+    }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-image: url(https://tse1.mm.bing.net/th?id=OIP.Hj1hplRUFanUE-C5SGIFVAHaHa&pid=Api&P=0);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.about-us {
+  padding: 210px;
+  text-align: left;
+  background-image :url("https://tse3.mm.bing.net/th?id=OIP.E6VaoYIQq5GmizjyO4hGiwHaHa&pid=Api&P=0");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  font-family: cursive;
+}
+#gambar{
+  width: 250px;
+  height: 250px;
+}
+.hold{
+  margin-top: -100px;
+  margin-left: -80px;
+  width: 700px;
+  height: auto;
+  transition: 0.5s;
+}
+.hold:hover{
+  transform: scale(1);
+  background-color: rgba(113, 113, 113, 0.7);
+  border-radius: 10px;
+}
+.hold #gambar{
+  padding-left: 30%;
+}
+.hold p{
+  font-size: 30px;
+}
+.hold h1{
+  font-size: 60px;
+}

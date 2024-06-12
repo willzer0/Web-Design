@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Latihan Box Model</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font: 16px/28px arial, sans-serif;
+            background-image: url(https://tse1.mm.bing.net/th?id=OIP.Hj1hplRUFanUE-C5SGIFVAHaHa&pid=Api&P=0);
+            color: #333;
+        }
+
+        .Container {
+            width: 960px;
+            margin: auto;
+            background-color: #fff;
+            border: 5px solid lavender;
+        }
+
+        .header {
+            padding: 20px;
+            background-image: url(projectzero.png);
+            background-repeat: no-repeat;
+            z-index: 1;
+            background-position: top right;
+            background-size: 60px 60px;
+        }
+
+        .header background-image {
+            position: absolute;
+
+        }
+
+        .header .judul {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .header ul li {
+            display: inline-block;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: salmon;
+            padding: 3px;
+        }
+
+        .header a:hover {
+            background-color: lightyellow;
+            color: salmon;
+        }
+
+        .hero {
+            height: 350px;
+            background-image: url(https://tse3.mm.bing.net/th?id=OIP.ozbBBFaQnvfJzhhWQ9QcuwHaHa&pid=Api&P=0);
+            background-size: cover;
+            background-position: 0-180px;
+            border-bottom: 5px solid lightcyan;
+            border-top: 5px solid salmon;
+        }
+
+        .main {
+            padding: 20px;
+            width: 600px;
+            box-sizing: border-box;
+        }
+
+        .main h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .penulis {
+            font-size: 12px;
+            margin-top: -24px;
+        }
+
+        .penulis p {
+            text-decoration: none;
+            color: salmon;
+            background-color: lightyellow;
+        }
+
+        .main p {
+            padding-left: 15px;
+        }
+
+        .bot {
+            background-color: black;
+            height: 50px;
+        }
+
+        .bot h3 {
+            color: ghostwhite;
+            text-align: center;
+            font: arial, sans-serif;
+            font-size: 15px;
+            padding-top: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown span {
+            color: salmon;
+        }
+
+        .dropdown-content a:hover {
+            color: lightskyblue;
+        }
+
+        html::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background-color: salmon;
+        }
+
+        html::-webkit-scrollbar-track {
+            background-color: rgb(116, 116, 116);
+        }
+
+        .product {
+            text-align: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .product .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 10px 5px rgb(53, 53, 53);
+            text-align: center;
+            font-family: 'Roboto Mono';
+            transition: transform 0.5s;
+        }
+
+        .card .title {
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .card img {
+            max-width: 100%;
+        }
+
+        .card .desc {
+            text-align: left;
+            margin-left: 0px;
+            margin-bottom: 0.5em;
+            font-size: 15px;
+        }
+
+        .card .buy {
+            background-color: salmon;
+            border: none;
+            padding: 0.7em;
+            margin-bottom: 0.7em;
+            border-radius: 5px;
+            font-weight: bold;
+
+        }
+
+        .buy:hover {
+            box-shadow: 0px 5px 5px rgb(250, 97, 143);
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            -ms-grid-column-align: center;
+            grid-row-gap: 40px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .page {
+            background-color: #fff;
+            width: 100%;
+            margin: auto;
+            padding-bottom: 5em;
+        }
+
+        .product-title {
+            color: #353535;
+            padding-top: 0.3em;
+            margin: 0 auto 80px;
+            position: relative;
+            line-height: 60px;
+            font-size: 30px;
+            font-family: 'Roboto Mono';
+        }
+
+        .product-title::after {
+            content: '';
+            background: salmon;
+            width: 80px;
+            height: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+
+        .fa {
+            color: salmon;
+        }
+
+        .overlay {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0);
+            z-index: 10;
+            transition: .8s;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .overlay:target {
+            height: auto;
+            width: auto;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .overlay img {
+            max-height: 100%;
+            height: 100%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .overlay:target img {
+            animation: zoomDanfade 1s;
+        }
+
+        .overlay .close {
+            position: absolute;
+            top: 20px;
+            margin-left: -400px;
+            font-size: 40px;
+            color: white;
+            text-decoration: none;
+            background-color: black;
+            border: 1px solid white;
+            line-height: 14px;
+            padding: 12px;
+            opacity: 0;
+        }
+
+        .overlay .button0 {
+            display: inline-block;
+            padding: 15px 200px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: orange;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            opacity: 0;
+        }
+
+        .overlay #cost {
+            margin-left: 550px;
+            position: relative;
+            z-index: 3;
+            margin-top: -55px;
+            font-size: 30px;
+            opacity: 0;
+            width: 250px;
+            height: 30px;
+            background-color: rgba(135, 135, 135, .8);
+        }
+
+        .overlay:target #cost {
+            opacity: 1;
+            color: salmon;
+            font-weight: bold;
+        }
+
+        .overlay:target .close {
+            animation: SlideDownFade 1s 0.2s forwards;
+        }
+
+        .overlay:target .button0 {
+            animation: SlideupFade 1s 0.2s forwards;
+        }
+
+        @keyframes zoomDanfade {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1.0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes SlideDownFade {
+            0% {
+                opacity: 0;
+                margin-top: -20px;
+            }
+
+            100% {
+                opacity: 1;
+                margin-top: 0;
+            }
+        }
+
+        @keyframes SlideupFade {
+            0% {
+                opacity: 0;
+                margin-bottom: -30px;
+            }
+
+            100% {
+                opacity: 1;
+                margin-top: 0;
+            }
+        }
+
+        .overlay .prodname {
+            position: absolute;
+            margin-top: -40px;
+            margin-left: 400px;
+            font-size: 30px;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+            opacity: 0;
+        }
+
+        .overlay:target .prodname {
+            opacity: 1;
+        }
+
+        .button0:hover {
+            background-color: salmon;
+        }
+
+        .button0:active {
+            background-color: #salmon;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .cf:before,
+        .cf:after {
+            content: " ";
+            display: table;
+        }
+
+        .cf:after {
+            clear: both;
+        }
+
+        .cf {
+            *zoom: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Container">
+        <div class="header">
+            <h1 class="judul">Kelompok 7</h1>
+            <ul>
+                <li><a
+                        href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\h1final.html">Home</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <span>Products</span>
+                        <div class="dropdown-content">
+                            <a
+                                href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\final_project_WebDis22\pg_tas.html">Tas</a>
+                            <br>
+                            <a
+                                href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\final_project_WebDis22\pg_sepatu.html">Sepatu</a>
+                            <br>
+                            <a
+                                href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\final_project_WebDis22\pg_aksesoris.html">Aksesoris</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\h5final.html">About
+                        Us</a></li>
+
+                <li><a
+                        href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\h4contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="product">
+            <div class="page">
+                <h1 class="product-title">Tas</h1>
+                <div class="container">
+                    <!-- first product -->
+                    <div class="card">
+                        <div class="title">
+                            <h1></h1>
+                        </div>
+                        <div class="image"><img src="tas1.jpg"></div>
+                        <div class="desc">
+                            <p>Eagle Creek Wayfinder
+                                <i class="fa fa-star" id="stars"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <div class="button1">
+                            <a href="#product-1">
+                                <button class="buy">
+                                    Buy now
+                                </button></a>
+                        </div>
+                    </div>
+                    <div class="overlay" id="product-1">
+                        <a href="#" class="close">x close</a>
+                        <p class="prodname">Product: Eagle Creek Wayfinder</p>
+                        <img src="tas1.jpg" alt="tas1">
+                        <p id="cost">Cost : 30$</p>
+                        <a
+                            href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\form_checkout.html"><button
+                                class="button0">Check Out</button></a>
+                    </div>
+
+                    <!-- second product -->
+                    <div class="card">
+                        <div class="title">
+                            <h1></h1>
+                        </div>
+                        <div class="image"><img src="tas2.jpg"></div>
+                        <div class="desc">
+                            <p>Kenneth Cole Colombian
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <div class="button1">
+                            <a href="#product-2">
+                                <button class="buy">
+                                    Buy now
+                                </button></a>
+                        </div>
+                    </div>
+                    <div class="overlay" id="product-2">
+                        <a href="#" class="close">x close</a>
+                        <p class="prodname">Product: Kenneth Cole Colombian</p>
+                        <img src="tas2.jpg" alt="tas2">
+                        <p id="cost">Cost : 29$</p>
+                        <a
+                            href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\form_checkout.html"><button
+                                class="button0">Check Out</button></a>
+                    </div>
+                    <!-- third product -->
+                    <div class="card">
+                        <div class="title">
+                            <h1></h1>
+                        </div>
+                        <div class="image"><img src="tas3.jpg"></div>
+                        <div class="desc">
+                            <p>Skybags Black Polyster
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <div class="button1">
+                            <a href="#product-3">
+                                <button class="buy">
+                                    Buy now
+                                </button></a>
+                        </div>
+                    </div>
+                    <div class="overlay" id="product-3">
+                        <a href="#" class="close">x close</a>
+                        <p class="prodname">Product: Skybags Black Polyster</p>
+                        <img src="tas3.jpg" alt="tas3">
+                        <p id="cost">Cost : 28$</p>
+
+                        <a
+                            href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\form_checkout.html"><button
+                                class="button0">Check Out</button></a>
+                    </div>
+
+                    <!-- fourth product -->
+                    <div class="card">
+                        <div class="title">
+                            <h1></h1>
+                        </div>
+                        <div class="image"><img src="tas4.jpg"></div>
+                        <div class="desc">
+                            <p>Zara Hobo
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <div class="button1">
+                            <a href="#product-4">
+                                <button class="buy">
+                                    Buy now
+                                </button></a>
+                        </div>
+                    </div>
+                    <div class="overlay" id="product-4">
+                        <a href="#" class="close">x close</a>
+                        <p class="prodname">Product: Zara Hobo</p>
+                        <img src="tas4.jpg" alt="tas4">
+                        <p id="cost">Cost : 21$</p>
+                        <a
+                            href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\form_checkout.html"><button
+                                class="button0">Check Out</button></a>
+                    </div>
+                    <!-- second product -->
+                    <div class="card">
+                        <div class="title">
+                            <h1></h1>
+                        </div>
+                        <div class="image"><img src="tas5.jpg"></div>
+                        <div class="desc">
+                            <p>Banthelu Chess T3
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <div class="button1">
+                            <a href="#product-5">
+                                <button class="buy">
+                                    Buy now
+                                </button></a>
+                        </div>
+                    </div>
+                    <div class="overlay" id="product-5">
+                        <a href="#" class="close">x close</a>
+                        <p class="prodname">Product: Banthelu Chess T3</p>
+                        <img src="tas5.jpg" alt="tas5">
+                        <p id="cost">Cost : 25$</p>
+                        <a
+                            href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\form_checkout.html"><button
+                                class="button0">Check Out</button></a>
+                    </div>
+
+                    <!-- third product -->
+                    <div class="card">
+                        <div class="title">
+                            <h1></h1>
+                        </div>
+                        <div class="image"><img src="tas6.jpg"></div>
+                        <div class="desc">
+                            <p>Sophie Martin P81
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <div class="button1">
+                            <a href="#product-6">
+                                <button class="buy">
+                                    Buy now
+                                </button></a>
+                        </div>
+                    </div>
+                    <div class="overlay" id="product-6">
+                        <a href="#" class="close">x close</a>
+                        <p class="prodname">Product: Sophie Martin P81</p>
+                        <img src="tas6.jpg" alt="tas6">
+                        <p id="cost">Cost : 24$</p>
+                        <a
+                            href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\form_checkout.html"><button
+                                class="button0">Check Out</button></a>
+                    </div>
+
+                    <!-- fourth product -->
+                    <div class="card">
+                        <div class="title">
+                            <h1></h1>
+                        </div>
+                        <div class="image"><img src="tas7.jpg"></div>
+                        <div class="desc">
+                            <p>MJ Brand Luxury
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <div class="button1">
+                            <a href="#product-7">
+                                <button class="buy">
+                                    Buy now
+                                </button></a>
+                        </div>
+                    </div>
+                    <div class="overlay" id="product-7">
+                        <a href="#" class="close">x close</a>
+                        <p class="prodname">Product: MJ Brand Luxury</p>
+                        <img src="tas7.jpg" alt="tas7">
+                        <p id="cost">Cost : 22$</p>
+                        <a
+                            href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\form_checkout.html"><button
+                                class="button0">Check Out</button></a>
+                    </div>
+
+                    <div class="card">
+                        <div class="title">
+                            <h1></h1>
+                        </div>
+                        <div class="image"><img src="tas8.jpg"></div>
+                        <div class="desc">
+                            <p>Woonam Newest
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <div class="button1">
+                            <a href="#product-8">
+                                <button class="buy">
+                                    Buy now
+                                </button></a>
+                        </div>
+                    </div>
+                    <div class="overlay" id="product-8">
+                        <a href="#" class="close">x close</a>
+                        <p class="prodname">Product: Woonam Newest</p>
+                        <img src="tas8.jpg" alt="tas8">
+                        <p id="cost">Cost : 20$</p>
+                        <a
+                            href="C:\Users\william\OneDrive\Dokumen\unklab\web design\Final Project Web design\form_checkout.html"><button
+                                class="button0">Check Out</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
